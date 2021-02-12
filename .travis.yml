@@ -22,3 +22,10 @@ script:
   - coverage run --branch --source=. ./manage.py test --keepdb
   - coverage xml
   - python-codacy-coverage -r coverage.xml
+deploy:
+  provider: heroku
+  app: egc-decide-ferangmor-test3
+  strategy: git
+  apikey: $HEROKU_AUTH_TOKEN
+  on:
+     branch: master
