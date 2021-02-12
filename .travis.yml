@@ -1,4 +1,8 @@
 dist: xenial
+# safelist
+branches:
+  only:
+  - master
 services:
   - postgresql
 addons:
@@ -18,4 +22,3 @@ script:
   - coverage run --branch --source=. ./manage.py test --keepdb
   - coverage xml
   - python-codacy-coverage -r coverage.xml
-
